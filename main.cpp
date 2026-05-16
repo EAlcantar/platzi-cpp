@@ -15,5 +15,11 @@ int main() {
     cout << "Change age? ";
     cin >> age;
     cout << name + ". " + "Age: " << age << endl;
+    cout << "Ages list: ";
+    for (size_t i = 0; i < sizeof(list_ages)/sizeof(list_ages[0]); i++)
+    {
+        cout << list_ages[i] << " ";
+    }
+    
     return 0;
 }
