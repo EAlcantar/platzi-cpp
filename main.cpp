@@ -29,6 +29,10 @@ int main() {
     cout << endl << "what index do you want to check? ";
     cin >> user_input;
     cout << list_checker(list_ages, user_input) << endl;
-    
+
+    //Basics of standard libraries
+    //Strings
+    string any_text = "Erick Alcantar";
+    cout << "The string '" + any_text + "' has a size of " << any_text.size() << endl;
     return 0;
 }
