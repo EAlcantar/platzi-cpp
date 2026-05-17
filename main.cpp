@@ -2,9 +2,15 @@
 #include <string>
 using namespace std;
 
+//Basics of Functions
+int list_checker(int input_list[], int index){
+    return input_list[index-1];
+}
+
 int main() {
     //Basics of Lists
     int age = 19;
+    int user_input = 0;
     const string name = "Erick";
     int list_ages[] = { 10, 20, 30};
     list_ages[2] = age;
@@ -20,6 +26,9 @@ int main() {
     {
         cout << list_ages[i] << " ";
     }
+    cout << endl << "what index do you want to check? ";
+    cin >> user_input;
+    cout << list_checker(list_ages, user_input) << endl;
     
     return 0;
 }
