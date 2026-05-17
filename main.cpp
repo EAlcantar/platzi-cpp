@@ -2,13 +2,13 @@
 #include <string>
 using namespace std;
 
-//Basics of Functions
+/* //Basics of Functions
 int list_checker(int input_list[], int index){
     return input_list[index-1];
-}
+} */
 
 int main() {
-    //Basics of Lists
+    /* //Basics of Lists
     int age = 19;
     int user_input = 0;
     const string name = "Erick";
@@ -34,5 +34,24 @@ int main() {
     //Strings
     string any_text = "Erick Alcantar";
     cout << "The string '" + any_text + "' has a size of " << any_text.size() << endl;
-    return 0;
+     */
+
+     //Multidimensional arrays
+     int ids [5][3] = 
+        {
+            {1,2,3},
+            {4,5,6},
+            {7,8,9},
+            {10,11,12},
+            {13,14,15}
+        };
+
+    for (size_t i = 0; i < sizeof(ids)/sizeof(ids[0]); i++){
+        for (size_t j = 0; j < sizeof(ids[0])/sizeof(ids[0][0]); j++){
+            cout << ids[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+     return 0;
 }
