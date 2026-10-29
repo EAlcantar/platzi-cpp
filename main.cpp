@@ -1,14 +1,20 @@
 #include <iostream>
 #include <string>
+#include <stdexcept>
+#include <limits>
 using namespace std;
 
-/* //Basics of Functions
-int list_checker(int input_list[], int index){
-    return input_list[index-1];
-} */
+//Basics of Functions
+int list_checker(const int input_list[], int size, int index) {
+    if (index < 1 || index > size) {
+        throw std::out_of_range("Numero fuera del rango de la lista");
+    }
+
+    return input_list[index - 1];
+} 
 
 int main() {
-    /* //Basics of Lists
+     //Basics of Lists
     int age = 19;
     int user_input = 0;
     const string name = "Erick";
@@ -19,24 +25,41 @@ int main() {
 
     //Basics of IO Stream
     cout << "Change age? ";
-    cin >> age;
+    while (!(cin >> age)) {
+        if (cin.eof()) {
+            return 1;
+        }
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Ingresa un numero: ";
+    }
     cout << name + ". " + "Age: " << age << endl;
     cout << "Ages list: ";
     for (size_t i = 0; i < sizeof(list_ages)/sizeof(list_ages[0]); i++)
     {
         cout << list_ages[i] << " ";
     }
+    const int size = sizeof(list_ages)/sizeof(list_ages[0]);
     cout << endl << "what index do you want to check? ";
-    cin >> user_input;
-    cout << list_checker(list_ages, user_input) << endl;
+    while (!(cin >> user_input) || user_input < 1 || user_input > size) {
+        if (cin.eof()) {
+            return 1;
+        }
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Ingresa un numero entre 1 y " << size << ": ";
+    }
+
+    int value = list_checker(list_ages, size, user_input);
+    cout << "The value at index " << user_input << " is: " << value << endl;
 
     //Basics of standard libraries
     //Strings
     string any_text = "Erick Alcantar";
     cout << "The string '" + any_text + "' has a size of " << any_text.size() << endl;
-     */
+    
 
-     //Multidimensional arrays
+    /* //Multidimensional arrays
      int ids [5][3] = 
         {
             {1,2,3},
@@ -54,6 +77,7 @@ int main() {
     }
     
      return 0;
+     */
 
      
 }
